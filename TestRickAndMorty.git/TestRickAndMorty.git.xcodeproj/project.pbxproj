@@ -56,15 +56,71 @@
 		BA714AD92A8F482400B293A6 /* TestRickAndMorty.git */ = {
 			isa = PBXGroup;
 			children = (
-				BA714ADA2A8F482400B293A6 /* AppDelegate.swift */,
-				BA714ADC2A8F482400B293A6 /* SceneDelegate.swift */,
-				BA714ADE2A8F482400B293A6 /* ViewController.swift */,
-				BA714AE02A8F482400B293A6 /* Main.storyboard */,
-				BA714AE32A8F482500B293A6 /* Assets.xcassets */,
-				BA714AE52A8F482500B293A6 /* LaunchScreen.storyboard */,
-				BA714AE82A8F482500B293A6 /* Info.plist */,
+				BA714AEF2A8F488500B293A6 /* Resources */,
+				BA714AEE2A8F487900B293A6 /* Sources */,
 			);
 			path = TestRickAndMorty.git;
+			sourceTree = "<group>";
+		};
+		BA714AEE2A8F487900B293A6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BA714AF02A8F48A400B293A6 /* App */,
+				BA714AF12A8F48AC00B293A6 /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BA714AEF2A8F488500B293A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA714AE82A8F482500B293A6 /* Info.plist */,
+				BA714AE32A8F482500B293A6 /* Assets.xcassets */,
+				BA714AE52A8F482500B293A6 /* LaunchScreen.storyboard */,
+				BA714AE02A8F482400B293A6 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BA714AF02A8F48A400B293A6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BA714ADA2A8F482400B293A6 /* AppDelegate.swift */,
+				BA714ADC2A8F482400B293A6 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BA714AF12A8F48AC00B293A6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BA714AF42A8F48D400B293A6 /* Models */,
+				BA714AF32A8F48CF00B293A6 /* Views */,
+				BA714AF22A8F48C600B293A6 /* Controllers */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BA714AF22A8F48C600B293A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA714ADE2A8F482400B293A6 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BA714AF32A8F48CF00B293A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA714AF42A8F48D400B293A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A7Q9CH3UQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestRickAndMorty.git/Info.plist;
+				INFOPLIST_FILE = TestRickAndMorty.git/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A7Q9CH3UQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestRickAndMorty.git/Info.plist;
+				INFOPLIST_FILE = TestRickAndMorty.git/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
