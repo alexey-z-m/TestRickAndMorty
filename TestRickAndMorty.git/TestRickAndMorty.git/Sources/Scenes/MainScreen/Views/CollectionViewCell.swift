@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CollectionViewCellProtocol: UICollectionViewCell {
+    func configure(character: CharacterSchema)
+}
+
 class CollectionViewCell: UICollectionViewCell {
     static let identifier = "CollectionViewCell"
 
@@ -57,7 +61,32 @@ class CollectionViewCell: UICollectionViewCell {
         characterName.translatesAutoresizingMaskIntoConstraints = false
         characterName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         characterName.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16).isActive = true
+        characterName.topAnchor.constraint(equalTo: characterImage.bottomAnchor, constant: 16).isActive = true
         characterName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+    }
+}
 
+extension CollectionViewCell: CollectionViewCellProtocol {
+    func configure(character: CharacterSchema) {
+        characterName.text = character.name
+        UIImage().setImageByURL(imageView: characterImage, url: character.image)
+    }
+}
+extension UIImage {
+    func setImageByURL(imageView: UIImageView, url: String?) {
+        let queue = DispatchQueue(label: "loadImage")
+        queue.async {
+            guard let imagePath = url,
+                  let imageURL = URL(string: imagePath),
+                  let imageData = try? Data(contentsOf: imageURL) else {
+                DispatchQueue.main.async {
+                    imageView.image = UIImage(systemName: "photo")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                imageView.image = UIImage(data: imageData)
+            }
+        }
     }
 }

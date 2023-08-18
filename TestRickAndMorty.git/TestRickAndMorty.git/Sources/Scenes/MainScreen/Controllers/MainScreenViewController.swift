@@ -73,7 +73,7 @@ class MainScreenViewController: UIViewController {
 
 extension MainScreenViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Network.dataCharacters.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,6 +83,7 @@ extension MainScreenViewController: UICollectionViewDataSource {
         ) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.configure(character: Network.dataCharacters[indexPath.row])
         return cell
     }
 }
