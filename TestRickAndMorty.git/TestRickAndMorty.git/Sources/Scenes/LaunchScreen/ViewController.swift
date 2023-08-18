@@ -37,7 +37,14 @@ class ViewController: UIViewController {
         view.addSubview(backgroundImage)
         backgroundImage.addSubview(portalImage)
         backgroundImage.addSubview(logoImage)
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
+        let mainScreenVC = MainScreenViewController()
+        mainScreenVC.modalTransitionStyle = .crossDissolve
+        mainScreenVC.modalPresentationStyle = .fullScreen
+        sleep(3)
+        present(mainScreenVC, animated: true)
     }
 
     func setupLayout() {
