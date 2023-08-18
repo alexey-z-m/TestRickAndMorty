@@ -94,6 +94,10 @@ extension MainScreenViewController: UICollectionViewDelegate {
         UIView.animate(withDuration: 0.1, animations: { cell?.alpha = 0.5 }) { (completed) in
             UIView.animate(withDuration: 0.1, animations: { cell?.alpha = 1 })
         }
+        let viewController = DetailsScreenViewController()
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: true)
     }
 }
 

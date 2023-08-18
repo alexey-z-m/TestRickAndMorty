@@ -44,8 +44,9 @@ class ViewController: UIViewController {
         let mainScreenVC = MainScreenViewController()
         mainScreenVC.modalTransitionStyle = .crossDissolve
         mainScreenVC.modalPresentationStyle = .fullScreen
-        sleep(3)
+        sleep(2)
         present(mainScreenVC, animated: true)
+
     }
 
     func setupLayout() {
