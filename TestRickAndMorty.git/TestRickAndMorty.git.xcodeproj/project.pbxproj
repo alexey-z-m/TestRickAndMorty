@@ -94,33 +94,17 @@
 		BA714AF12A8F48AC00B293A6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BA714AF42A8F48D400B293A6 /* Models */,
-				BA714AF32A8F48CF00B293A6 /* Views */,
-				BA714AF22A8F48C600B293A6 /* Controllers */,
+				BA714AF52A8F4CDD00B293A6 /* LaunchScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		BA714AF22A8F48C600B293A6 /* Controllers */ = {
+		BA714AF52A8F4CDD00B293A6 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
 				BA714ADE2A8F482400B293A6 /* ViewController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		BA714AF32A8F48CF00B293A6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		BA714AF42A8F48D400B293A6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
