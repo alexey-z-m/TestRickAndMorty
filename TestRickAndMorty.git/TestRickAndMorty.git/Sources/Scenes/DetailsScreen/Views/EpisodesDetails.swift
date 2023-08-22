@@ -10,6 +10,11 @@ import SwiftUI
 struct EpisodesDetails: View {
     @State var details: [Episode] = Network.detailsEpisodes
     let col = [GridItem(.flexible())]
+    func convert(_ ep: String) -> String {
+        let s = ep[ep.index(ep.startIndex, offsetBy: 1)..<ep.index(ep.startIndex, offsetBy: 3)]
+        let e = ep[ep.index(ep.startIndex, offsetBy: 4)..<ep.index(ep.endIndex, offsetBy: 0)]
+        return "Episode: \(e), Season: \(s)"
+    }
     var body: some View {
         Group {
             HStack {
@@ -35,7 +40,7 @@ struct EpisodesDetails: View {
                                         .foregroundColor(.white)
                                         .bold()
                                     HStack{
-                                        Text(details[index].episode)
+                                        Text(convert(details[index].episode))
                                             .foregroundColor(.green)
                                             .font(.system(size: 13))
                                         Spacer()
