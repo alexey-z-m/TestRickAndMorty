@@ -9,8 +9,7 @@ import SwiftUI
 
 class DetailsScreenViewController: UIHostingController<DetailsScreen> {
     init() {
-        super.init(rootView: DetailsScreen())
-    }
+        super.init(rootView: DetailsScreen())    }
 
     @objc required dynamic init?(coder aDecoder: NSCoder) {
         fatalError()

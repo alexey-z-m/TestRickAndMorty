@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EpisodesDetails: View {
+    @State var details: [Episode] = Network.detailsEpisodes
     let col = [GridItem(.flexible())]
     var body: some View {
         Group {
@@ -21,7 +22,7 @@ struct EpisodesDetails: View {
             }
             .padding([.leading, .trailing, .top], 24)
             LazyVGrid(columns: col) {
-                ForEach(0..<60) { index in
+                ForEach(0..<details.count) { index in
                     ZStack {
                         Rectangle()
                             .cornerRadius(16)
@@ -30,15 +31,15 @@ struct EpisodesDetails: View {
                         VStack() {
                             HStack {
                                 VStack(alignment: .leading,spacing: 16) {
-                                    Text("Pilot")
+                                    Text(details[index].name)
                                         .foregroundColor(.white)
                                         .bold()
                                     HStack{
-                                        Text("Episode: 1, Season: 1")
+                                        Text(details[index].episode)
                                             .foregroundColor(.green)
                                             .font(.system(size: 13))
                                         Spacer()
-                                        Text("December 2, 2013")
+                                        Text(details[index].air_date)
                                             .multilineTextAlignment(.trailing)
                                             .foregroundColor(Color(red: 0.58, green: 0.6, blue: 0.61))
                                             .font(.system(size: 13))

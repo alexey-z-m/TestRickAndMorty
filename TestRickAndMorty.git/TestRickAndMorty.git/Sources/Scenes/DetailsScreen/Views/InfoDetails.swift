@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InfoDetails: View {
+    @State var details: CharacterSchema? = Network.detailsCharacter
     var body: some View {
         HStack {
             Text("Info")
@@ -30,7 +31,7 @@ struct InfoDetails: View {
                         .font(.system(size: 16)
                             .weight(.medium))
                     Spacer()
-                    Text("Human")
+                    Text(details?.species ?? "-")
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
                 }
@@ -41,7 +42,7 @@ struct InfoDetails: View {
                         .font(.system(size: 16)
                             .weight(.medium))
                     Spacer()
-                    Text("None")
+                    Text(details?.type == "" ? "None" : details?.type ?? "-")
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
                 }
@@ -53,7 +54,7 @@ struct InfoDetails: View {
                         .font(.system(size: 16)
                             .weight(.medium))
                     Spacer()
-                    Text("Male")
+                    Text(details?.gender ?? "None")
                         .foregroundColor(.white)
                         .multilineTextAlignment(.trailing)
                 }

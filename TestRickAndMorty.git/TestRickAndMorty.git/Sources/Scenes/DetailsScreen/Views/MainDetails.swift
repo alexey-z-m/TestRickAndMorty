@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct MainDetails: View {
+    @State var details: CharacterSchema? = Network.detailsCharacter
     var body: some View {
-        Image(systemName: "photo")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .clipped()
-            .frame(width: 148,height: 148)
-            .cornerRadius(16)
-            .padding(.bottom, 24)
-        Text("Rick Sanchez")
+        AsyncImage(url: URL(string: details?.image ?? "")) { image in
+            image.resizable()
+        } placeholder: {
+            ProgressView()
+        }
+        .frame(width: 148,height: 148)
+        .aspectRatio(contentMode:.fill)
+        .clipped()
+        .cornerRadius(16)
+        .padding(.bottom, 24)
+        Text(details?.name ?? "")
             .foregroundColor(.white)
             .bold()
             .font(.system(size: 22))
-        Text("Alive")
+        Text(details?.status ?? "")
             .foregroundColor(.green)
             .padding(.top, 4)
     }

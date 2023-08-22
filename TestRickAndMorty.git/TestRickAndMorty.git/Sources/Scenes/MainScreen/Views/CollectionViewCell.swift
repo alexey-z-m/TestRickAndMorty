@@ -14,9 +14,14 @@ protocol CollectionViewCellProtocol: UICollectionViewCell {
 class CollectionViewCell: UICollectionViewCell {
     static let identifier = "CollectionViewCell"
 
-    private let characterImage: UIImageView = {
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        return indicator
+    }()
+
+    private lazy var characterImage: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .secondaryLabel
+        image.backgroundColor = .clear//.secondaryLabel
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
         image.contentMode = .scaleAspectFill
@@ -36,14 +41,21 @@ class CollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupHierarchy()
         setupLayout()
+        activityIndicator.startAnimating()
     }
 
     required init?(coder: NSCoder) {
         fatalError()
     }
 
+    override func prepareForReuse() {
+        characterImage.image = nil
+        activityIndicator.startAnimating()
+    }
+
     func setupHierarchy() {
         contentView.addSubview(characterImage)
+        characterImage.addSubview(activityIndicator)
         contentView.addSubview(characterName)
     }
 
@@ -63,6 +75,12 @@ class CollectionViewCell: UICollectionViewCell {
         characterName.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16).isActive = true
         characterName.topAnchor.constraint(equalTo: characterImage.bottomAnchor, constant: 16).isActive = true
         characterName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+
+
+
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: characterImage.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: characterImage.centerYAnchor).isActive = true
     }
 }
 
@@ -70,6 +88,7 @@ extension CollectionViewCell: CollectionViewCellProtocol {
     func configure(character: CharacterSchema) {
         characterName.text = character.name
         UIImage().setImageByURL(imageView: characterImage, url: character.image)
+        activityIndicator.stopAnimating()
     }
 }
 extension UIImage {

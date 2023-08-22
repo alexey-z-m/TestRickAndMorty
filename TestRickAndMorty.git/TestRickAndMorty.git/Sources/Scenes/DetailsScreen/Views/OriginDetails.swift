@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OriginDetails: View {
+    @State var details: DetailsLocation? = Network.detailsLocation
     var body: some View {
         HStack {
             Text("Origin")
@@ -37,10 +38,10 @@ struct OriginDetails: View {
                     }
                     .padding(8)
                     VStack(alignment: .leading,spacing: 8) {
-                        Text("Earth")
+                        Text(details?.name ?? "Unknown")
                             .foregroundColor(.white)
                             .bold()
-                        Text("Planet")
+                        Text(details?.type ?? "-")
                             .foregroundColor(.green)
                             .font(.system(size: 13))
                     }
