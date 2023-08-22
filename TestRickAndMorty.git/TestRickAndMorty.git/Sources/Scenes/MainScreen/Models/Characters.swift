@@ -39,3 +39,17 @@ struct Location: Decodable {
     let name: String
     let url: String
 }
+
+struct DetailsLocation: Decodable {
+    let id: Int
+    let name: String
+    let type: String
+}
+
+struct Episode: Decodable {
+    let id: Int
+    let name: String
+    let air_date: String
+    let episode: String
+}
+

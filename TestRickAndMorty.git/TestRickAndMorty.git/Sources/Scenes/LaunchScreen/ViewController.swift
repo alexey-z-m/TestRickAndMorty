@@ -29,7 +29,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Network.getDataCharacters()
         setupHierarchy()
         setupLayout()
     }
@@ -42,10 +41,11 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         let mainScreenVC = MainScreenViewController()
-        mainScreenVC.modalTransitionStyle = .crossDissolve
-        mainScreenVC.modalPresentationStyle = .fullScreen
-        sleep(3)
-        present(mainScreenVC, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.navigationController?.pushViewController(mainScreenVC, animated: true)
+        }
+
+
     }
 
     func setupLayout() {
